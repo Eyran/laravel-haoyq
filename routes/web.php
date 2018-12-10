@@ -11,9 +11,13 @@
 |
 */
 
+//use Illuminate\Support\Facades\Route;
+
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('test', function(){
-	return 'hello world';
-});
+
+
+Route::get('get_cook_time/{date?}', 'IndexController@getCookTime');
+Route::get('test', 'IndexController@test');// 测试
+
