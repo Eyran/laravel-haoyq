@@ -11,8 +11,36 @@ namespace app\Libraries;
 
 class Singe
 {
-    public function index()
+    /**
+     * 私有静态变量，用于存储实例
+     * @var
+     */
+    private static $instance;
+
+    /**
+     * 私有构造函数，防止外部实例化
+     * Singe constructor.
+     */
+    private function __construct()
     {
-        return 'hello world';
+
+    }
+
+    /**
+     * 私有克隆
+     */
+    private function __clone(){}
+
+    /**
+     * 提供外部实例化
+     * @return Singe
+     */
+    public static function getSinge()
+    {
+        if (!self::$instance instanceof self) {
+            self::$instance = new self();
+        }
+
+        return self::$instance;
     }
 }
