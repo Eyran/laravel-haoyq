@@ -14,12 +14,8 @@ if (!function_exists('bubbleSort')) {
      * @param $arr
      * @return array|bool
      */
-    function bubbleSort($arr)
+    function bubbleSort(array $arr)
     {
-        if (!is_array($arr)) {
-            return false;
-        }
-
         $count = count($arr);
 
         for ($i = 0; $i < $count; $i++) {
@@ -42,7 +38,7 @@ if (!function_exists('quickSort')) {
      * @param $arr
      * @return array
      */
-    function quickSort($arr)
+    function quickSort(array $arr)
     {
         $count = count($arr);
         if ($count < 2) {
