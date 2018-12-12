@@ -36,6 +36,34 @@ if (!function_exists('bubbleSort')) {
     }
 }
 
+if (!function_exists('quickSort')) {
+    /**
+     * 快速排序
+     * @param $arr
+     * @return array
+     */
+    function quickSort($arr)
+    {
+        $count = count($arr);
+        if ($count < 2) {
+            return $arr;
+        }
+
+        $middle = $arr[0];
+        $leftArray = $rightArray = array();
+
+        for ($i = 1; $i < $count; $i++) {
+            if ($arr[$i] < $middle) {
+                $leftArray[] = $arr[$i];
+            } else {
+                $rightArray[] = $arr[$i];
+            }
+        }
+
+        return array_merge(quickSort($leftArray), array($middle), quickSort($rightArray));
+    }
+}
+
 if (!function_exists('computingTime')) {
     /**
      * 计算未来某时与现在时间差
