@@ -17,6 +17,9 @@ if (!function_exists('bubbleSort')) {
     function bubbleSort(array $arr)
     {
         $count = count($arr);
+        if ($count < 2) {
+            return $arr;
+        }
 
         for ($i = 0; $i < $count; $i++) {
             for ($j = $i + 1; $j < $count; $j++) {
@@ -57,6 +60,38 @@ if (!function_exists('quickSort')) {
         }
 
         return array_merge(quickSort($leftArray), array($middle), quickSort($rightArray));
+    }
+}
+
+if (!function_exists('selectSort')) {
+    /**
+     * 选择排序
+     * @param array $arr
+     * @return array
+     */
+    function selectSort(array $arr)
+    {
+        $count = count($arr);
+        if ($count < 2) {
+            return $arr;
+        }
+
+        for ($i = 0; $i < $count - 1; $i++) {
+            $key = $i;
+            for ($j = $i + 1; $j < $count; $j++) {
+                if ($arr[$key] > $arr[$j]) {
+                    $key = $j;
+                }
+            }
+
+            if ($key != $i) {
+                $temp = $arr[$key];
+                $arr[$key] = $arr[$i];
+                $arr[$i] = $temp;
+            }
+        }
+
+        return $arr;
     }
 }
 

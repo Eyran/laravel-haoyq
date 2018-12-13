@@ -7,6 +7,7 @@
 * [Linux 使用 git 上传代码到 GitHub](https://www.jianshu.com/p/3d84ead096cb)
 * [冒泡排序](https://www.jianshu.com/p/ab55693c9dc4)
 * [快速排序](https://www.jianshu.com/p/56c09d431443)
+* [选择排序](https://www.jianshu.com/p/a198951086aa)
 * [laravel 使用 composer 加载自定义函数和自定义类](https://www.jianshu.com/p/0a9fccf1a5b2)
 * [使用 Carbon 计算时间差](https://www.jianshu.com/p/9984b896e855)
 
