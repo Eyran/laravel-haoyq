@@ -21,3 +21,10 @@ Route::get('/', function () {
 Route::get('get_cook_time/{date?}', 'IndexController@getCookTime');
 Route::get('test', 'IndexController@test');// 测试
 
+// 二维码
+Route::get('print_qr', 'QrController@printQr');
+Route::get('save_qr', 'QrController@saveQr');
+Route::get('view_qr', function () {
+    return view('qr');
+});
+
