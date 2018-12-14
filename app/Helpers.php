@@ -8,13 +8,13 @@
 
 use \Illuminate\Support\Carbon;
 
-if (!function_exists('bubbleSort')) {
+if (!function_exists('bubble_sort')) {
     /**
      * 冒泡排序
      * @param $arr
      * @return array|bool
      */
-    function bubbleSort(array $arr)
+    function bubble_sort(array $arr)
     {
         $count = count($arr);
         if ($count < 2) {
@@ -35,13 +35,13 @@ if (!function_exists('bubbleSort')) {
     }
 }
 
-if (!function_exists('quickSort')) {
+if (!function_exists('quick_sort')) {
     /**
      * 快速排序
      * @param $arr
      * @return array
      */
-    function quickSort(array $arr)
+    function quick_sort(array $arr)
     {
         $count = count($arr);
         if ($count < 2) {
@@ -59,17 +59,17 @@ if (!function_exists('quickSort')) {
             }
         }
 
-        return array_merge(quickSort($leftArray), array($middle), quickSort($rightArray));
+        return array_merge(quick_sort($leftArray), array($middle), quick_sort($rightArray));
     }
 }
 
-if (!function_exists('selectSort')) {
+if (!function_exists('select_sort')) {
     /**
      * 选择排序
      * @param array $arr
      * @return array
      */
-    function selectSort(array $arr)
+    function select_sort(array $arr)
     {
         $count = count($arr);
         if ($count < 2) {
@@ -95,13 +95,13 @@ if (!function_exists('selectSort')) {
     }
 }
 
-if (!function_exists('computingTime')) {
+if (!function_exists('computing_time')) {
     /**
      * 计算未来某时与现在时间差
      * @param $date
      * @return bool|int [xx小时xx分钟]
      */
-    function computingTime($date)
+    function computing_time($date)
     {
         $time = strtotime($date);
         if (!$time || $time < time()) {

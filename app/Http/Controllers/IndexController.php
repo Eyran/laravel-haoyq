@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
-use Illuminate\Support\Facades\Log;
 
 class IndexController extends Controller
 {
@@ -18,7 +17,7 @@ class IndexController extends Controller
         // 默认是明天早上七点
         $date = $request->input('date', Carbon::tomorrow()->hour(7)->minute(0)->toDateTimeString());
 
-        return computingTime($date);
+        return computing_time($date);
     }
 
     /**
