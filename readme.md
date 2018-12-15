@@ -11,6 +11,7 @@
 * [laravel 使用 composer 加载自定义函数和自定义类](https://www.jianshu.com/p/0a9fccf1a5b2)
 * [使用 Carbon 计算时间差](https://www.jianshu.com/p/9984b896e855)
 * [laravel 使用扩展包生成二维码](https://www.jianshu.com/p/765b1fc37b62)
+* [laravel 安装中文语言包](https://www.jianshu.com/p/769318a76697)
 
 ## 博客链接
 
