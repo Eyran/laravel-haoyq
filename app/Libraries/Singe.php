@@ -6,7 +6,7 @@
  * Date: 2018/12/9
  */
 
-namespace app\Libraries;
+namespace App\Libraries;
 
 
 class Singe
