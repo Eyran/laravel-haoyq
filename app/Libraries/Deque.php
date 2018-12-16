@@ -11,6 +11,10 @@ namespace App\Libraries;
 
 class Deque
 {
+    /**
+     * 用于存储队列
+     * @var array
+     */
     protected $queue;
 
     public function __construct(array $arr)
