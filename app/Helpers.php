@@ -59,7 +59,7 @@ if (!function_exists('quick_sort')) {
             }
         }
 
-        return array_merge(quick_sort($leftArray), array($middle), quick_sort($rightArray));
+        return array_merge_perfect(quick_sort($leftArray), $middle, quick_sort($rightArray));
     }
 }
 
@@ -113,5 +113,34 @@ if (!function_exists('computing_time')) {
         $minutes = $now->diffInMinutes(Carbon::createFromTimestamp($time, config('app.timezone')));
 
         return floor($minutes / 60) . '小时' . ($minutes % 60) . '分钟';
+    }
+}
+
+if (!function_exists('array_merge_perfect')) {
+    /**
+     * 完善 array_merge
+     * 将所有参数转换为数组，null、false 转换为空数组
+     * @param array ...$args
+     * @return array
+     */
+    function array_merge_perfect(...$args)
+    {
+        $fun = function ($value) {
+            if ($value === false) {
+                return array();
+            }
+
+            return (array)$value;
+        };
+
+        // 将所有参数都转换为 array 类型
+        $arr = array_map($fun, $args);
+
+        $newArray = array();
+        foreach ($arr as $key => $value) {
+            $newArray = array_merge($newArray, $value);
+        }
+
+        return $newArray;
     }
 }
