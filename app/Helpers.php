@@ -175,3 +175,17 @@ if (!function_exists('get_file_ext')) {
         return end($arr);
     }
 }
+
+if (!function_exists('get_file_ext_1')) {
+    /**
+     * 获取文件扩展名，另外两种方法
+     * @param $file
+     * @return bool|string
+     */
+    function get_file_ext_1($file)
+    {
+//        return substr($file, strrpos($file, '.') + 1);
+        $arr = pathinfo($file);
+        return $arr['extension'];
+    }
+}
