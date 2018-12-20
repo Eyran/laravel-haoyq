@@ -162,3 +162,16 @@ if (!function_exists('fibonacci')) {
         return fibonacci($n - 1) + fibonacci($n - 2);
     }
 }
+
+if (!function_exists('get_file_ext')) {
+    /**
+     * 获取文件扩展名
+     * @param $file
+     * @return mixed
+     */
+    function get_file_ext($file)
+    {
+        $arr = explode('.', $file);
+        return end($arr);
+    }
+}
