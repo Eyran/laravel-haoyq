@@ -191,7 +191,7 @@ if (!function_exists('get_file_ext_1')) {
     }
 }
 
-if (!function_exists('get_qr_image')) {
+if (!function_exists('print_qr')) {
     /**
      * 获取二维码图片
      * 更多配置及使用可查看 https://www.jianshu.com/p/765b1fc37b62
@@ -199,7 +199,7 @@ if (!function_exists('get_qr_image')) {
      * @param int $size
      * @return string|void [二维码图片]
      */
-    function get_qr_image($content, $size = 200)
+    function print_qr($content, $size = 200)
     {
         $qr = new BaconQrCodeGenerator();
         return $qr->size($size)->generate($content);
