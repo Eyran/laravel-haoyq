@@ -7,6 +7,7 @@
  */
 
 use \Illuminate\Support\Carbon;
+use \SimpleSoftwareIO\QrCode\BaconQrCodeGenerator;
 
 if (!function_exists('bubble_sort')) {
     /**
@@ -187,5 +188,20 @@ if (!function_exists('get_file_ext_1')) {
 //        return substr($file, strrpos($file, '.') + 1);
         $arr = pathinfo($file);
         return $arr['extension'];
+    }
+}
+
+if (!function_exists('get_qr_image')) {
+    /**
+     * 获取二维码图片
+     * 更多配置及使用可查看 https://www.jianshu.com/p/765b1fc37b62
+     * @param $content
+     * @param int $size
+     * @return string|void [二维码图片]
+     */
+    function get_qr_image($content, $size = 200)
+    {
+        $qr = new BaconQrCodeGenerator();
+        return $qr->size($size)->generate($content);
     }
 }
