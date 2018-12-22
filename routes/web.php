@@ -28,3 +28,9 @@ Route::get('view_qr', function () {
     return view('qr');
 });
 
+// PDF
+Route::get('print_pdf', 'PdfController@printPdf');
+Route::get('download_pdf', 'PdfController@downloadPdf');
+Route::get('load_file_pdf', 'PdfController@loadFilePdf');
+Route::get('chain_methods', 'PdfController@chainMethods');
+
