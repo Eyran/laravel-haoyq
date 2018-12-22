@@ -13,6 +13,7 @@
 * [laravel 使用扩展包生成二维码](https://www.jianshu.com/p/765b1fc37b62)
 * [laravel 安装中文语言包](https://www.jianshu.com/p/769318a76697)
 * [PHP 的 array_merge 详解](https://www.jianshu.com/p/ae4b288175e7)
+* [laravel 使用扩展包生成 PDF](https://www.jianshu.com/p/3344d87b161a)
 
 ## 博客链接
 
