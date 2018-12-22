@@ -205,3 +205,21 @@ if (!function_exists('print_qr')) {
         return $qr->size($size)->generate($content);
     }
 }
+
+if (!function_exists('computing_sum')) {
+    /**
+     * 计算两个整数区间的总和
+     * @param int $min
+     * @param int $max
+     * @return float|int
+     */
+    function computing_sum(int $min, int $max)
+    {
+        if ($min > $max || $min == $max) {
+            return 0;
+        }
+
+        $arr = range($min, $max);
+        return array_sum($arr);
+    }
+}
