@@ -42,6 +42,9 @@ class PdfController extends Controller
     public function loadFilePdf()
     {
         $file = storage_path('app/public/pdf/name.html');
+        if (!is_file($file)) {
+            return '没有当前文件';
+        }
         $pdf = PDF::loadFile($file);
         return $pdf->stream();
     }
