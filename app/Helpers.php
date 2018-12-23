@@ -223,3 +223,19 @@ if (!function_exists('computing_sum')) {
         return array_sum($arr);
     }
 }
+
+if (!function_exists('get_email_name')) {
+    /**
+     * 获取邮箱名称
+     * @param $email
+     * @return bool|string
+     */
+    function get_email_name($email)
+    {
+        if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+            return false;
+        }
+
+        return substr($email, 0, strpos($email, '@'));
+    }
+}
