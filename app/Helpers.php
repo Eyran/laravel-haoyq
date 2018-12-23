@@ -236,6 +236,8 @@ if (!function_exists('get_email_name')) {
             return false;
         }
 
-        return substr($email, 0, strpos($email, '@'));
+//        return substr($email, 0, strpos($email, '@'));
+        $arr = explode('@', $email);
+        return array_shift($arr);
     }
 }
