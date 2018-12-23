@@ -100,13 +100,13 @@ if (!function_exists('computing_time')) {
     /**
      * 计算未来某时与现在时间差
      * @param $date
-     * @return bool|int [xx小时xx分钟]
+     * @return null|int [xx小时xx分钟]
      */
     function computing_time($date)
     {
         $time = strtotime($date);
         if (!$time || $time < time()) {
-            return false;
+            return null;
         }
 
         $now = Carbon::now(config('app.timezone'));
@@ -228,12 +228,12 @@ if (!function_exists('get_email_name')) {
     /**
      * 获取邮箱名称
      * @param $email
-     * @return bool|string
+     * @return null|string
      */
     function get_email_name($email)
     {
         if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-            return false;
+            return null;
         }
 
 //        return substr($email, 0, strpos($email, '@'));
