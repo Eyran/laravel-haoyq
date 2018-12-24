@@ -34,3 +34,7 @@ Route::get('download_pdf', 'PdfController@downloadPdf');
 Route::get('load_file_pdf', 'PdfController@loadFilePdf');
 Route::get('chain_methods', 'PdfController@chainMethods');
 
+// Debugbar
+Route::get('debugbar_view', 'DebugbarController@debugbarView');
+Route::get('debugbar_log', 'DebugbarController@debugbarLog');
+
