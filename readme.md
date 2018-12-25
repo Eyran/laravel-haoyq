@@ -14,6 +14,7 @@
 * [laravel 安装中文语言包](https://www.jianshu.com/p/769318a76697)
 * [PHP 的 array_merge 详解](https://www.jianshu.com/p/ae4b288175e7)
 * [laravel 使用扩展包生成 PDF](https://www.jianshu.com/p/3344d87b161a)
+* [laravel 调试工具 Debugbar 安装及使用](https://www.jianshu.com/p/a46ad223f73f)
 
 ## 博客链接
 
