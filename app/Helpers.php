@@ -241,3 +241,32 @@ if (!function_exists('get_email_name')) {
         return array_shift($arr);
     }
 }
+
+if (!function_exists('monkey_king')) {
+    /**
+     * 猴子选大王
+     * 共有 m 个猴子，按照 1、2、3...m 排序。从第一位开始数，每到 n 个，该猴子被淘汰，最后剩下的为猴王。
+     * monkey_king(range(1, m), n)
+     * @param array $arr
+     * @param int $n
+     * @param int $k
+     * @return array
+     */
+    function monkey_king(array $arr, int $n, int $k = 0)
+    {
+        if (count($arr) <= 1) {
+            return array_pop($arr);
+        }
+
+        foreach ($arr as $key => $value) {
+            $k++;
+            if ($k % $n == 0) {
+                unset($arr[$key]);
+                $k = 0;
+            }
+        }
+
+        return monkey_king($arr, $n, $k);
+    }
+}
+
