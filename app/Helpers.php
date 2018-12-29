@@ -96,6 +96,34 @@ if (!function_exists('select_sort')) {
     }
 }
 
+if (!function_exists('insert_sort')) {
+    /**
+     * 插入排序
+     * @param array $arr
+     * @return array
+     */
+    function insert_sort(array $arr)
+    {
+        $count = count($arr);
+
+        if ($count < 2) {
+            return $arr;
+        }
+
+        for ($i = 1; $i < $count; $i++) {
+            $temp = $arr[$i];
+            for ($k = $i - 1; $k >= 0; $k--) {
+                if ($temp < $arr[$k]) {
+                    $arr[$k + 1] = $arr[$k];
+                    $arr[$k] = $temp;
+                }
+            }
+        }
+
+        return $arr;
+    }
+}
+
 if (!function_exists('computing_time')) {
     /**
      * 计算未来某时与现在时间差
