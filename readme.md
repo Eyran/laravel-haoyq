@@ -4,7 +4,6 @@
 
 ## 相关文章
 
-* [Linux 使用 git 上传代码到 GitHub](https://www.jianshu.com/p/3d84ead096cb)
 * [冒泡排序](https://www.jianshu.com/p/ab55693c9dc4)
 * [快速排序](https://www.jianshu.com/p/56c09d431443)
 * [选择排序](https://www.jianshu.com/p/a198951086aa)
