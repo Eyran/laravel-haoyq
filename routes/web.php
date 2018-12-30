@@ -38,3 +38,5 @@ Route::get('chain_methods', 'PdfController@chainMethods');
 Route::get('debugbar_view', 'DebugbarController@debugbarView');
 Route::get('debugbar_log', 'DebugbarController@debugbarLog');
 
+// 获取天气
+Route::get('get_weather/{city?}', 'IndexController@getWeather');

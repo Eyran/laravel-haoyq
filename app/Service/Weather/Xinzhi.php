@@ -15,7 +15,14 @@ class Xinzhi implements Weather
     public function getWeather($cityName)
     {
         $url = $this->getUrl($cityName);
-        return file_get_contents($url);
+        $jsonData = file_get_contents($url);
+        $arrayData = json_decode($jsonData, true);
+
+        if (isset($arrayData['status_code']) || !$arrayData) {
+            return '获取天气失败';
+        }
+
+        return '现在天气' . $arrayData['results'][0]['now']['text'] . '，气温 ' . $arrayData['results'][0]['now']['temperature'] . ' 度。';
     }
 
     /**
@@ -30,7 +37,7 @@ class Xinzhi implements Weather
         $key = env('XINZHI_API'); // 测试用 key，请更换成您自己的 Key
         $uid = env('XINZHI_UID'); // 测试用 用户 ID，请更换成您自己的用户 ID
 // 参数
-        $api = 'https://api.seniverse.com/v3/weather/daily.json'; // 接口地址
+        $api = 'https://api.seniverse.com/v3/weather/now.json'; // 接口地址
         $location = $cityName; // 城市名称。除拼音外，还可以使用 v3 id、汉语等形式
 // 生成签名。文档：https://www.seniverse.com/doc#sign
         $param = [

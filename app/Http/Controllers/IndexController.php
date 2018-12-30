@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Contracts\Weather;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
 
@@ -18,6 +19,17 @@ class IndexController extends Controller
         $date = $request->input('date', Carbon::tomorrow()->hour(7)->minute(0)->toDateTimeString());
 
         return computing_time($date);
+    }
+
+    /**
+     * 获取天气情况
+     * @param Request $request
+     * @param Weather $weather
+     * @return mixed
+     */
+    public function getWeather(Request $request, Weather $weather)
+    {
+        return $weather->getWeather($request->input('city', 'beijing'));
     }
 
     /**
