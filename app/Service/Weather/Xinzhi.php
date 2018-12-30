@@ -22,7 +22,7 @@ class Xinzhi implements Weather
             return '获取天气失败';
         }
 
-        return '现在天气' . $arrayData['results'][0]['now']['text'] . '，气温 ' . $arrayData['results'][0]['now']['temperature'] . ' 度。';
+        return $arrayData['results'][0]['location']['name'] . '现在天气' . $arrayData['results'][0]['now']['text'] . '，气温 ' . $arrayData['results'][0]['now']['temperature'] . ' 度。';
     }
 
     /**
