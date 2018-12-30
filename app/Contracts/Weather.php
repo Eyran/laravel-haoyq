@@ -6,6 +6,8 @@
  * Date: 2018/12/30
  */
 
+namespace App\Contracts;
+
 interface Weather
 {
     /**
