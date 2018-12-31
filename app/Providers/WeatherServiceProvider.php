@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Service\Weather\Hefeng;
 use App\Service\Weather\Xinzhi;
 use Illuminate\Support\ServiceProvider;
 
@@ -26,7 +27,8 @@ class WeatherServiceProvider extends ServiceProvider
     {
         // 天气
         $this->app->bind('App\Contracts\Weather', function() {
-            return new Xinzhi();
+           // return new Xinzhi();
+            return new Hefeng();
         });
     }
 }
