@@ -8,6 +8,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\File;
 use SimpleSoftwareIO\QrCode\BaconQrCodeGenerator;
 use SimpleSoftwareIO\QrCode\Facades\QrCode;
 
@@ -48,7 +49,7 @@ class QrController extends Controller
     {
         $dir = storage_path('app/public/images/qr/');
         if (!is_dir($dir)) {
-            mkdir($dir, 0777, true);
+            File::makeDirectory($dir, 0755, true);
         }
 
         return $dir;
