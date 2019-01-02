@@ -15,9 +15,9 @@ class Hefeng implements Weather
     public function getWeather($cityName)
     {
         $param = ['key' => env('HEFENG_KEY'), 'location' => $cityName];
-        $url = 'https://free-api.heweather.net/s6/weather/now?' . http_build_query($param);
+        $url = 'https://free-api.heweather.net/s6/weather/now';
 
-        $jsonData = file_get_contents($url);
+        $jsonData = curl_request($url, $param, false, true);
         $arrayData = json_decode($jsonData, true);
 
         if ($arrayData['HeWeather6'][0]['status'] != 'ok' || !$arrayData) {

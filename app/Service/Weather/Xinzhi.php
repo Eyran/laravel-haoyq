@@ -15,7 +15,7 @@ class Xinzhi implements Weather
     public function getWeather($cityName)
     {
         $url = $this->getUrl($cityName);
-        $jsonData = file_get_contents($url);
+        $jsonData = curl_request($url);
         $arrayData = json_decode($jsonData, true);
 
         if (isset($arrayData['status_code']) || !$arrayData) {
