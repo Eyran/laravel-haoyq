@@ -363,8 +363,12 @@ if (!function_exists('send_request')) {
     {
         $client = new Client();
 
-        if (!$params) {
-            $response = $client->request(($isPost ? 'POST' : 'GET'), $uri, ['query' => $params]);
+        if (!empty($params)) {
+            if ($isPost) {
+                $response = $client->post($uri, ['form_params' => $params]);
+            } else {
+                $response = $client->get($uri, ['query' => $params]);
+            }
         } else {
             $response = $client->request(($isPost ? 'POST' : 'GET'), $uri);
         }
@@ -383,7 +387,7 @@ if (!function_exists('is_json')) {
      * @param string $string
      * @return bool
      */
-    function is_json(string $string)
+    function is_json($string)
     {
         json_decode($string);
         return (json_last_error() == JSON_ERROR_NONE);
