@@ -8,6 +8,7 @@
 
 use \Illuminate\Support\Carbon;
 use \SimpleSoftwareIO\QrCode\BaconQrCodeGenerator;
+use GuzzleHttp\Client;
 
 if (!function_exists('bubble_sort')) {
     /**
@@ -347,6 +348,32 @@ if (!function_exists('curl_request')) {
         curl_close($ch);
 
         return $response;
+    }
+}
+
+if (!function_exists('send_request')) {
+    /**
+     * 封装 GuzzleHttp\Client，发送请求
+     * @param $uri
+     * @param array $params
+     * @param bool $isPost
+     * @return null|\Psr\Http\Message\StreamInterface
+     */
+    function send_request($uri, array $params = [], bool $isPost = false)
+    {
+        $client = new Client();
+
+        if (!$params) {
+            $response = $client->request(($isPost ? 'POST' : 'GET'), $uri, ['query' => $params]);
+        } else {
+            $response = $client->request(($isPost ? 'POST' : 'GET'), $uri);
+        }
+
+        if (!in_array($response->getStatusCode(), [200])) {
+            return null;
+        }
+
+        return $response->getBody();
     }
 }
 
