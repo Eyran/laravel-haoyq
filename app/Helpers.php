@@ -350,3 +350,16 @@ if (!function_exists('curl_request')) {
     }
 }
 
+if (!function_exists('is_json')) {
+    /**
+     * 判断是否为 json
+     * @param string $string
+     * @return bool
+     */
+    function is_json(string $string)
+    {
+        json_decode($string);
+        return (json_last_error() == JSON_ERROR_NONE);
+    }
+}
+
