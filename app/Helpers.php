@@ -394,3 +394,16 @@ if (!function_exists('is_json')) {
     }
 }
 
+if(!function_exists('get_pinyin')) {
+    /**
+     * 获取拼音
+     * @param string $string
+     * @return string
+     */
+    function get_pinyin(string $string)
+    {
+        $arr = pinyin($string);
+        return implode('', $arr);
+    }
+}
+
