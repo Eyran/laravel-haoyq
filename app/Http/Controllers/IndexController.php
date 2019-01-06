@@ -29,7 +29,7 @@ class IndexController extends Controller
      */
     public function getWeather(Request $request, Weather $weather)
     {
-        return $weather->getWeather($request->input('city', 'beijing'));
+        return $weather->getWeather($request->input('city', get_city_by_ip(true)));
     }
 
     /**
