@@ -6,9 +6,11 @@
  * Date: 2018/12/8
  */
 
-use \Illuminate\Support\Carbon;
-use \SimpleSoftwareIO\QrCode\BaconQrCodeGenerator;
+use Illuminate\Support\Carbon;
+use SimpleSoftwareIO\QrCode\BaconQrCodeGenerator;
 use GuzzleHttp\Client;
+use Zhuzhichao\IpLocationZh\Ip;
+use Illuminate\Support\Facades\Request;
 
 if (!function_exists('bubble_sort')) {
     /**
@@ -394,7 +396,7 @@ if (!function_exists('is_json')) {
     }
 }
 
-if(!function_exists('get_pinyin')) {
+if (!function_exists('get_pinyin')) {
     /**
      * 获取拼音
      * @param string $string
@@ -404,6 +406,26 @@ if(!function_exists('get_pinyin')) {
     {
         $arr = pinyin($string);
         return implode('', $arr);
+    }
+}
+
+if (!function_exists('get_city_by_ip')) {
+    /**
+     * 根据访问 ip 获取城市名称
+     * @param bool $isPinyin
+     * @param string $default
+     * @return string
+     */
+    function get_city_by_ip(bool $isPinyin = false, string $default = '北京')
+    {
+        $arr = Ip::find(Request::getClientIp());
+        $city = !empty($arr[2]) ? $arr[2] : $default;
+
+        if ($isPinyin) {
+            return get_pinyin($city);
+        } else {
+            return $city;
+        }
     }
 }
 
