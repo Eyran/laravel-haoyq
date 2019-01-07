@@ -16,6 +16,7 @@
 * [laravel 使用扩展包生成 PDF](https://www.jianshu.com/p/3344d87b161a)
 * [laravel 调试工具 Debugbar 安装及使用](https://www.jianshu.com/p/a46ad223f73f)
 * [laravel 自定义服务提供者](https://www.jianshu.com/p/4b06fabd0452)
+* [laravel 数据迁移与 Eloquent ORM](https://www.jianshu.com/p/a208a81c44bf)
 
 ## 博客链接
 
