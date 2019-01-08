@@ -19,7 +19,7 @@ class BrowseLog
 
         $log->ip_addr = $request->getClientIp();
         $log->request_url = $request->path();
-        $log->city_name = get_city_by_ip();
+        $log->city_name = get_city_by_ip(false, 'null');
 
         $log->save();
 
