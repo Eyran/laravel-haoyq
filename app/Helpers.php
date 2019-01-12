@@ -263,7 +263,7 @@ if (!function_exists('get_email_name')) {
      */
     function get_email_name($email)
     {
-        if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        if (!is_email($email)) {
             return null;
         }
 
@@ -426,6 +426,18 @@ if (!function_exists('get_city_by_ip')) {
         } else {
             return $city;
         }
+    }
+}
+
+if (!function_exists('is_email')) {
+    /**
+     * 判断是否为 email
+     * @param $email
+     * @return bool
+     */
+    function is_email($email)
+    {
+        return (bool)filter_var($email, FILTER_VALIDATE_EMAIL);
     }
 }
 
