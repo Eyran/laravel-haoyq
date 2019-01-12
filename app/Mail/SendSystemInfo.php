@@ -11,14 +11,16 @@ class SendSystemInfo extends Mailable
 {
     use Queueable, SerializesModels;
 
+    protected $data;
+
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($data)
     {
-        //
+        $this->data = $data;
     }
 
     /**
@@ -28,6 +30,6 @@ class SendSystemInfo extends Mailable
      */
     public function build()
     {
-        return $this->markdown('emails.system.info');
+        return $this->markdown('emails.system.info')->with(['data' => $this->data]);
     }
 }
