@@ -18,6 +18,10 @@ class EventServiceProvider extends ServiceProvider
         Registered::class => [
             SendEmailVerificationNotification::class,
         ],
+        'App\Events\UserBrowse' => [
+            'App\Listeners\CreateBrowseLog',
+            // 其它监听器
+        ],
     ];
 
     /**
