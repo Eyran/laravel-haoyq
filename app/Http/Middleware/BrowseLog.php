@@ -2,6 +2,7 @@
 
 namespace App\Http\Middleware;
 
+use App\Events\UserBrowse;
 use Closure;
 
 class BrowseLog
@@ -15,13 +16,8 @@ class BrowseLog
      */
     public function handle($request, Closure $next)
     {
-        $log = new \App\Models\BrowseLog();
-
-        $log->ip_addr = $request->getClientIp();
-        $log->request_url = $request->path();
-        $log->city_name = get_city_by_ip(false, 'null');
-
-        $log->save();
+        // 使用事件/监听器入库
+        event(new UserBrowse($request->getClientIp(), $request->path(), get_city_by_ip(false, 'null')));
 
         return $next($request);
     }

@@ -14,14 +14,20 @@ class UserBrowse
 {
     use Dispatchable, InteractsWithSockets, SerializesModels;
 
+    public $ip_addr;
+    public $request_url;
+    public $city_name;
+
     /**
      * Create a new event instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($ip_addr, $request_url, $city_name)
     {
-        //
+        $this->ip_addr = $ip_addr;
+        $this->request_url = $request_url;
+        $this->city_name = $city_name;
     }
 
     /**
