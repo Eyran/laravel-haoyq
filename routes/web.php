@@ -42,4 +42,4 @@ Route::get('debugbar_log', 'DebugbarController@debugbarLog');
 Route::get('get_weather/{city?}', 'IndexController@getWeather');
 
 // 测试 Redis
-Route::get('test_redis', 'IndexController@testRedis');
+//Route::get('test_redis', 'IndexController@testRedis');
