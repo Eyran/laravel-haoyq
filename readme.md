@@ -18,6 +18,7 @@
 * [laravel 自定义服务提供者](https://www.jianshu.com/p/4b06fabd0452)
 * [laravel 数据迁移与 Eloquent ORM](https://www.jianshu.com/p/a208a81c44bf)
 * [laravel 事件/监听器 实例](https://www.jianshu.com/p/010b10f501f9)
+* [laravel 配置 Redis 多个库](https://www.jianshu.com/p/269021c60d0d)
 
 ## 博客链接
 
