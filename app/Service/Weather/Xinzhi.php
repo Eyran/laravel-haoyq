@@ -9,6 +9,7 @@
 namespace App\Service\Weather;
 
 use App\Contracts\Weather;
+use Illuminate\Support\Facades\Cache;
 
 class Xinzhi implements Weather
 {
@@ -22,7 +23,9 @@ class Xinzhi implements Weather
             return '获取天气失败';
         }
 
-        return $arrayData['results'][0]['location']['name'] . '现在天气' . $arrayData['results'][0]['now']['text'] . '，气温 ' . $arrayData['results'][0]['now']['temperature'] . ' 度。';
+        return Cache::remember('xin_zhi_weather', 10, function () use ($arrayData) {
+            return $arrayData['results'][0]['location']['name'] . '现在天气' . $arrayData['results'][0]['now']['text'] . '，气温 ' . $arrayData['results'][0]['now']['temperature'] . ' 度。';
+        });
     }
 
     /**

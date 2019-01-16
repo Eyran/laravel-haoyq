@@ -9,6 +9,7 @@
 namespace App\Service\Weather;
 
 use App\Contracts\Weather;
+use Illuminate\Support\Facades\Cache;
 
 class Hefeng implements Weather
 {
@@ -24,6 +25,8 @@ class Hefeng implements Weather
             return '获取天气失败';
         }
 
-        return $arrayData['HeWeather6'][0]['basic']['location'] . '现在天气' . $arrayData['HeWeather6'][0]['now']['cond_txt'] . '，气温 ' . $arrayData['HeWeather6'][0]['now']['tmp'] . ' 度。';
+        return Cache::remember('he_feng_weather', 10, function () use ($arrayData) {
+            return $arrayData['HeWeather6'][0]['basic']['location'] . '现在天气' . $arrayData['HeWeather6'][0]['now']['cond_txt'] . '，气温 ' . $arrayData['HeWeather6'][0]['now']['tmp'] . ' 度。';
+        });
     }
 }
