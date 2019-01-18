@@ -19,6 +19,7 @@
 * [laravel 数据迁移与 Eloquent ORM](https://www.jianshu.com/p/a208a81c44bf)
 * [laravel 事件/监听器 实例](https://www.jianshu.com/p/010b10f501f9)
 * [laravel 配置 Redis 多个库](https://www.jianshu.com/p/269021c60d0d)
+* [laravel 使用 Faker 数据填充](https://www.jianshu.com/p/a8e729dac921)
 
 ## 博客链接
 
