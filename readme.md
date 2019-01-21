@@ -20,7 +20,7 @@
 * [laravel 事件/监听器 实例](https://www.jianshu.com/p/010b10f501f9)
 * [laravel 配置 Redis 多个库](https://www.jianshu.com/p/269021c60d0d)
 * [laravel 使用 Faker 数据填充](https://www.jianshu.com/p/a8e729dac921)
-
+* [laravel 任务调度实例](https://www.jianshu.com/p/711a2d795aac)
 ## 博客链接
 
 [haoyq](https://www.jianshu.com/u/d812a8beaa9b)
