@@ -19,8 +19,8 @@ class EventServiceProvider extends ServiceProvider
             SendEmailVerificationNotification::class,
         ],
         'App\Events\UserBrowse' => [
-            'App\Listeners\CreateBrowseLog',
-            // 其它监听器
+            'App\Listeners\CreateBrowseLog',// 用户访问记录
+            'App\Listeners\CreateUserIpLog',// 用户 IP 记录
         ],
     ];
 
