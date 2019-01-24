@@ -441,3 +441,24 @@ if (!function_exists('is_email')) {
     }
 }
 
+if (!function_exists('similar_text_perfect')) {
+    /**
+     * 计算两个字符串的相似度
+     * 封装 similar_text 函数
+     * @param string $string
+     * @param string $string1
+     * @param int $precision [小数点位数]
+     * @param bool $isSymbol [是否有 %]
+     * @return float|string
+     */
+    function similar_text_perfect(string $string, string $string1, int $precision = 2, bool $isSymbol = true)
+    {
+        similar_text($string, $string1, $temp);
+
+        if ($isSymbol) {
+            return round($temp, $precision) . '%';
+        } else {
+            return round($temp, $precision);
+        }
+    }
+}
