@@ -462,3 +462,26 @@ if (!function_exists('similar_text_perfect')) {
         }
     }
 }
+
+if (!function_exists('strrev_perfect')) {
+    /**
+     * 字符串翻转，包括汉字
+     * @param string $string
+     * @return null|string
+     */
+    function strrev_perfect(string $string)
+    {
+        if (!mb_check_encoding($string, 'UTF-8')) {
+            return null;
+        }
+
+        $count = mb_strlen($string);
+
+        for ($i = 0; $i < $count; $i++) {
+            $arr[] = mb_substr($string, $i, 1, 'UTF-8');
+        }
+
+        krsort($arr);
+        return implode('', $arr);
+    }
+}
