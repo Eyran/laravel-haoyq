@@ -43,3 +43,6 @@ Route::get('get_weather/{city?}', 'IndexController@getWeather');
 
 // 测试 Redis
 //Route::get('test_redis', 'IndexController@testRedis');
+
+// 秒杀
+Route::get('create_list', 'RushToBuyController@createList');
