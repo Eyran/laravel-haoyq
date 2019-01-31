@@ -46,3 +46,5 @@ Route::get('get_weather/{city?}', 'IndexController@getWeather');
 
 // 秒杀
 Route::get('create_list', 'RushToBuyController@createList');
+Route::get('buy', 'RushToBuyController@buy');
+Route::get('buy_success', 'RushToBuyController@buySuccess');
