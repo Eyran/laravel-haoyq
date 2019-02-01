@@ -26,12 +26,17 @@ class CreateBrowseLog
      */
     public function handle(UserBrowse $event)
     {
-        $log = new \App\Models\BrowseLog();
+        // 本地访问不做记录
+        $arr = ['127.0.0.1'];
 
-        $log->ip_addr = $event->ip_addr;
-        $log->request_url = $event->request_url;
-        $log->city_name = $event->city_name;
+        if (!in_array($event->ip_addr, $arr)) {
+            $log = new \App\Models\BrowseLog();
 
-        $log->save();
+            $log->ip_addr = $event->ip_addr;
+            $log->request_url = $event->request_url;
+            $log->city_name = $event->city_name;
+
+            $log->save();
+        }
     }
 }
