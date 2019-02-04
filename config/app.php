@@ -180,6 +180,7 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
         App\Providers\WeatherServiceProvider::class,
+        App\Providers\HolidayServiceProvider::class,
 
     ],
 
