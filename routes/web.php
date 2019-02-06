@@ -12,7 +12,7 @@
 */
 
 //use Illuminate\Support\Facades\Route;
-use \Illuminate\Support\Facades\Cache;
+use Illuminate\Support\Facades\Cache;
 
 Route::get('/', function () {
     return view('welcome', ['title' => Cache::has('is_holiday:' . now()->format('Ymd')) ? 'Happy Holiday' : 'laravel-haoyq']);

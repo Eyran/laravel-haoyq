@@ -35,6 +35,7 @@ class CheckHoliday extends Command
     /**
      * Execute the console command.
      *
+     * @param Holiday $holiday
      * @return mixed
      */
     public function handle(Holiday $holiday)
