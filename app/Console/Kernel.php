@@ -14,6 +14,7 @@ class Kernel extends ConsoleKernel
      */
     protected $commands = [
         \App\Console\Commands\CountIpDay::class,
+        \App\Console\Commands\CheckHoliday::class,
     ];
 
     /**
@@ -25,6 +26,7 @@ class Kernel extends ConsoleKernel
     protected function schedule(Schedule $schedule)
     {
         $schedule->command('countIp:day')->dailyAt('01:00');
+        $schedule->command('checkHoliday:day')->dailyAt('23:50');
     }
 
     /**
