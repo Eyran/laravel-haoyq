@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Service\Holiday\Goseek;
 use Illuminate\Support\ServiceProvider;
 
 class HolidayServiceProvider extends ServiceProvider
@@ -23,6 +24,8 @@ class HolidayServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        $this->app->bind('App\Contracts\Holiday', function () {
+            return new Goseek();
+        });
     }
 }
