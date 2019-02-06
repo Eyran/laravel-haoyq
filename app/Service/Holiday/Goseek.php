@@ -31,10 +31,6 @@ class Goseek implements Holiday
 
         $arr = json_decode($jsonData, true);
 
-        if ($arr['code'] == 2) {
-            return true;
-        } else {
-            return false;
-        }
+        return $arr['data'] == 2 ? true : false;
     }
 }
