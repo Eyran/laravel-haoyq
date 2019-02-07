@@ -15,7 +15,7 @@
 use Illuminate\Support\Facades\Cache;
 
 Route::get('/', function () {
-    return view('welcome', ['title' => Cache::has('is_holiday:' . now()->format('Ymd')) ? 'Happy Holiday' : 'laravel-haoyq']);
+    return view('welcome', ['message' => Cache::has('is_holiday:' . now()->format('Ymd')) ? 'Happy Holiday' : 'laravel-haoyq', 'title' => 'laravel-haoyq']);
 });
 
 
