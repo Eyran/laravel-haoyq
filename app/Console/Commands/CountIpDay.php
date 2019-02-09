@@ -2,6 +2,7 @@
 
 namespace App\Console\Commands;
 
+use App\Events\NotifyAdmin;
 use App\Mail\SendSystemInfo;
 use Illuminate\Console\Command;
 use Illuminate\Support\Carbon;
@@ -47,7 +48,7 @@ class CountIpDay extends Command
 
         $data = $yesterday . ' 访问 IP 总数为 ' . $redis->scard($redisKey);
 
-        // 发送邮件
-        Mail::to(env('ADMIN_EMAIL'))->send(new SendSystemInfo($data));
+        // 通知管理员
+        event(new NotifyAdmin($data));
     }
 }

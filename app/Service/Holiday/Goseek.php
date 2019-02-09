@@ -9,6 +9,7 @@
 namespace App\Service\Holiday;
 
 use App\Contracts\Holiday;
+use App\Events\NotifyAdmin;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\SendSystemInfo;
 
@@ -24,8 +25,8 @@ class Goseek implements Holiday
         $jsonData = send_request('http://api.goseek.cn/Tools/holiday', ['date' => $date]);
 
         if (!is_json($jsonData)) {
-            // 发送邮件
-            Mail::to(env('ADMIN_EMAIL'))->send(new SendSystemInfo('获取节日信息失败'));
+            // 通知管理员
+            event(new NotifyAdmin('获取节日信息失败'));
             return false;
         }
 
