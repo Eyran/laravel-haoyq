@@ -15,13 +15,19 @@ class NotifyAdmin
     use Dispatchable, InteractsWithSockets, SerializesModels;
 
     /**
+     * 通知内容
+     * @var
+     */
+    public $content;
+
+    /**
      * Create a new event instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($content)
     {
-        //
+        $this->content = $content;
     }
 
     /**
