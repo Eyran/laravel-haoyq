@@ -22,6 +22,9 @@ class EventServiceProvider extends ServiceProvider
             'App\Listeners\CreateBrowseLog',// 用户访问记录
             'App\Listeners\CreateUserIpLog',// 用户 IP 记录
         ],
+        'App\Events\NotifyAdmin' => [
+            'App\Listeners\Email',// 发送邮件
+        ],
     ];
 
     /**
