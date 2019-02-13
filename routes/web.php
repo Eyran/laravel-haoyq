@@ -51,6 +51,6 @@ Route::get('buy', 'RushToBuyController@buy');
 Route::get('buy_success', 'RushToBuyController@buySuccess');
 
 // 上传图片
-Route::get('upload_pic', function () {
+Route::get('upload_show', function () {
     return view('upload/uploader');
 });
