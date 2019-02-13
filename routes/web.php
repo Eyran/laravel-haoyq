@@ -49,3 +49,8 @@ Route::get('get_weather/{city?}', 'IndexController@getWeather');
 Route::get('create_list', 'RushToBuyController@createList');
 Route::get('buy', 'RushToBuyController@buy');
 Route::get('buy_success', 'RushToBuyController@buySuccess');
+
+// 上传图片
+Route::get('upload_pic', function () {
+    return view('upload/uploader');
+});
