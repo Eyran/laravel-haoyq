@@ -54,3 +54,4 @@ Route::get('buy_success', 'RushToBuyController@buySuccess');
 Route::get('upload_show', function () {
     return view('upload/uploader');
 });
+Route::post('upload_pic', 'UploadController@uploadPic');
