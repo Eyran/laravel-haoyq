@@ -50,11 +50,11 @@
         // 只允许选择图片文件。
         accept: {
             title: 'Images',
-            extensions: 'gif,jpg,jpeg,bmp,png',
+            extensions: 'jpg,jpeg,png',
             mimeTypes: 'image/*'
         }
     });
-    
+
     // 当有文件添加进来的时候
     uploader.on('fileQueued', function (file) {
         var $li = $(
