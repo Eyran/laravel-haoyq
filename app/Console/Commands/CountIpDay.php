@@ -46,9 +46,11 @@ class CountIpDay extends Command
         $yesterday = Carbon::yesterday()->format('Y-m-d');
         $redisKey = 'user_ip:' . $yesterday;
 
-        $data = $yesterday . ' 访问 IP 总数为 ' . $redis->scard($redisKey);
+        $count = $redis->scard($redisKey);
 
-        // 通知管理员
-        event(new NotifyAdmin($data));
+        if ($count >= 50) {
+            // 访问量多的时候，通知管理员
+            event(new NotifyAdmin($yesterday . ' 访问 IP 总数为 ' . $count));
+        }
     }
 }
