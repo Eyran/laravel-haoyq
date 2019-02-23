@@ -26,7 +26,7 @@ class UploadController extends Controller
         }
 
         // 是否保存成功
-        $path = $request->file('file')->store('temp');
+        $path = $request->file('file')->store('public/temp');
         if (!$path) {
             $this->returnErrorByJson();
         }
@@ -42,10 +42,10 @@ class UploadController extends Controller
      */
     public function uploadFormal(Request $request)
     {
-        $disk = Storage::disk('local');
+        $disk = Storage::disk('public');
 
         $filePath = 'temp/' . $request->input('file_name');
-        $savePath = 'public/images/uploads/' . $request->input('file_name');
+        $savePath = 'images/uploads/' . $request->input('file_name');
 
         if (!$disk->exists($filePath)) {
             return back()->with(['message' => '上传失败，请重试！']);
