@@ -55,3 +55,4 @@ Route::get('upload_show', function () {
     return view('upload/uploader');
 });
 Route::post('upload_pic', 'UploadController@uploadPic');
+Route::post('upload_formal', 'UploadController@uploadFormal');

@@ -13,6 +13,10 @@
     <link rel="stylesheet" type="text/css" href="https://cdn.staticfile.org/webuploader/0.1.1/webuploader.css">
     <script type="text/javascript" src="https://cdn.staticfile.org/webuploader/0.1.1/webuploader.html5only.js"></script>
 
+    @if(Session::has('message'))
+        <script>alert("{{ Session::get('message') }}")</script>
+    @endif
+
 </head>
 <body>
 <div id="uploader-demo">
@@ -20,6 +24,11 @@
     <div id="fileList" class="uploader-list"></div>
     <div id="filePicker">选择图片</div>
 </div>
+<form method="post" action="{{ url('upload_formal') }}">
+    {{ csrf_field() }}
+    <input type="hidden" name="file_name" id="file_name">
+    <input type="submit" value="上传" id="sub" disabled>
+</form>
 </body>
 <script>
 
@@ -83,8 +92,10 @@
     });
 
     // 文件上传成功，给item添加成功class, 用样式标记上传成功。
-    uploader.on('uploadSuccess', function (file) {
+    uploader.on('uploadSuccess', function (file, response) {
         $('#' + file.id).addClass('upload-state-done');
+        $('#file_name').val(response);
+        $('#sub').removeAttr("disabled");
     });
 
     // 文件上传失败，显示上传出错。
