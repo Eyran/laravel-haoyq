@@ -15,6 +15,7 @@ class Kernel extends ConsoleKernel
     protected $commands = [
         \App\Console\Commands\CountIpDay::class,
         \App\Console\Commands\CheckHoliday::class,
+        \App\Console\Commands\ClearUploadFiles::class,
     ];
 
     /**
@@ -27,6 +28,7 @@ class Kernel extends ConsoleKernel
     {
         $schedule->command('countIp:day')->dailyAt('01:00');
         $schedule->command('checkHoliday:day')->dailyAt('23:50');
+        $schedule->command('clearUploadFiles:day')->everyMinute();
     }
 
     /**
