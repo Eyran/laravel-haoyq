@@ -116,13 +116,13 @@ class FakerUserController extends Controller
     {
         $show = new Show(FakerUser::findOrFail($id));
 
-        $show->id('Id');
-        $show->name('Name');
-        $show->email('Email');
-        $show->age('Age');
-        $show->city('City');
-        $show->created_at('Created at');
-        $show->updated_at('Updated at');
+        $show->id(FakerUser::labels()['id']);
+        $show->name(FakerUser::labels()['name']);
+        $show->email(FakerUser::labels()['email']);
+        $show->age(FakerUser::labels()['age']);
+        $show->city(FakerUser::labels()['city']);
+        $show->created_at(FakerUser::labels()['created_at']);
+        $show->updated_at(FakerUser::labels()['updated_at']);
 
         return $show;
     }
