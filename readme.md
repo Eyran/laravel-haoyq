@@ -23,6 +23,7 @@
 * [laravel 任务调度实例](https://www.jianshu.com/p/711a2d795aac)
 * [Redis 实现秒杀](https://www.jianshu.com/p/31f59426c779)
 * [laravel-admin 使用记录（1） - 安装](https://segmentfault.com/a/1190000018282014)
+* [laravel-admin 使用记录（2） - 快速搭建 CURD](https://segmentfault.com/a/1190000018346321)
 
 
 ## 博客链接
