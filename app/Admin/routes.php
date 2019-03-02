@@ -14,5 +14,6 @@ Route::group([
 
     Route::group(['prefix' => 'database', 'namespace' => 'Database'], function ($route) {
         $route->resource('faker_user', 'FakerUserController');
+        $route->resource('browse_log', 'BrowseLogController');
     });
 });
