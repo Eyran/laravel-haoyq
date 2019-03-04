@@ -112,7 +112,7 @@ class BrowseLogController extends Controller
             // 城市筛选
             $filter->like('city_name', BrowseLog::labels()['city_name']);
             // 访问日期
-            $filter->day('created_at', BrowseLog::labels()['created_at']);
+            $filter->date('created_at', BrowseLog::labels()['created_at']);
         });
 
         return $grid;
