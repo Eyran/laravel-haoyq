@@ -38,7 +38,7 @@ class CreateBrowseLog
             $log->city_name = $event->city_name;
 
             $log->save();*/
-            BrowseLogQueue::dispatch($event->ip_addr, $event->request_url, $event->city_name);
+            BrowseLogQueue::dispatch($event->ip_addr, $event->request_url, $event->city_name, now());
 
             /*BrowseLogQueue::dispatch($event->ip_addr, $event->request_url, $event->city_name)->delay(now()->addMinute(1)); 延时添加
             */
