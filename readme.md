@@ -24,6 +24,8 @@
 * [Redis 实现秒杀](https://www.jianshu.com/p/31f59426c779)
 * [laravel-admin 使用记录（1） - 安装](https://segmentfault.com/a/1190000018282014)
 * [laravel-admin 使用记录（2） - 快速搭建 CURD](https://segmentfault.com/a/1190000018346321)
+* [laravel 队列实例（一）](https://www.jianshu.com/p/119d0280c970)
+* [laravel 队列实例（二）](https://www.jianshu.com/p/2470209b62f8)
 
 
 ## 博客链接
