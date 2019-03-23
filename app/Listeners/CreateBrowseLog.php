@@ -29,7 +29,6 @@ class CreateBrowseLog
     {
         // 本地访问不做记录
         $arr = ['127.0.0.1'];
-
         
         if (!in_array($event->ip_addr, $arr)) {
             /*$log = new \App\Models\BrowseLog();
