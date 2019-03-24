@@ -10,14 +10,16 @@ class BrowseLog
     /**
      * Handle an incoming request.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \Closure  $next
+     * @param  \Illuminate\Http\Request $request
+     * @param  \Closure $next
      * @return mixed
      */
     public function handle($request, Closure $next)
     {
-        // 使用事件/监听器入库
-        event(new UserBrowse($request->getClientIp(), $request->path(), get_city_by_ip(false, 'null')));
+        if (!is_local()) {
+            // 使用事件/监听器入库
+            event(new UserBrowse($request->getClientIp(), $request->path(), get_city_by_ip(false, 'null')));
+        }
 
         return $next($request);
     }

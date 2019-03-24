@@ -485,3 +485,15 @@ if (!function_exists('strrev_perfect')) {
         return implode('', $arr);
     }
 }
+
+if (!function_exists('is_local')) {
+    /**
+     * 是否为本地环境
+     * @param string $local
+     * @return bool
+     */
+    function is_local(string $local = 'local')
+    {
+        return env('APP_ENV') == $local;
+    }
+}
