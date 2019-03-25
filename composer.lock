@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "443faa7e0bff10802ef6c01408306fe3",
+    "content-hash": "ad749b12848215c895328745739b1eb5",
     "packages": [
         {
             "name": "bacon/bacon-qr-code",
@@ -1149,6 +1149,58 @@
             ],
             "description": "Highlight PHP code in terminal",
             "time": "2018-09-29T18:48:56+00:00"
+        },
+        {
+            "name": "jxlwqq/env-manager",
+            "version": "0.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/jxlwqq/env-manager.git",
+                "reference": "faeaf2f1d110dbfd88e715d71f289b128ceebda0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/jxlwqq/env-manager/zipball/faeaf2f1d110dbfd88e715d71f289b128ceebda0",
+                "reference": "faeaf2f1d110dbfd88e715d71f289b128ceebda0",
+                "shasum": ""
+            },
+            "require": {
+                "encore/laravel-admin": "~1.6",
+                "php": ">=7.0.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~6.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Jxlwqq\\EnvManager\\EnvManagerServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Jxlwqq\\EnvManager\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "jxlwqq",
+                    "email": "jxlwqq@gmail.com"
+                }
+            ],
+            "description": "Env Manager for Laravel-admin",
+            "homepage": "https://github.com/jxlwqq/env-manager",
+            "keywords": [
+                "extension",
+                "laravel-admin"
+            ],
+            "time": "2018-10-26T10:29:14+00:00"
         },
         {
             "name": "laravel-admin-ext/redis-manager",
