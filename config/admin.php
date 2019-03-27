@@ -315,8 +315,5 @@ return [
         'env-manager' => [
             'enable' => true
         ],
-        'composer-viewer' => [
-            'enable' => true,
-        ],
     ],
 ];
