@@ -315,5 +315,8 @@ return [
         'env-manager' => [
             'enable' => true
         ],
+        'media-manager' => [
+            'disk' => 'public'
+        ],
     ],
 ];
