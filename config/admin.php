@@ -318,5 +318,8 @@ return [
         'media-manager' => [
             'disk' => 'public'
         ],
+        'material-ui' => [
+            'enable' => true
+        ],
     ],
 ];
