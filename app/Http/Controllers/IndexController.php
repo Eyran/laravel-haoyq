@@ -55,7 +55,6 @@ class IndexController extends Controller
      */
     public function test()
     {
-        // 返回 404
         return abort(404);
     }
 }
