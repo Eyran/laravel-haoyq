@@ -1,13 +1,10 @@
 <?php
-/**
- * alter alert
- * 拼错了
- */
+
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AlertBrowseLogsTable extends Migration
+class AlterBrowseLogsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -17,8 +14,8 @@ class AlertBrowseLogsTable extends Migration
     public function up()
     {
         Schema::table('browse_logs', function (Blueprint $table) {
-            // 修改长度
-            $table->string('request_url', 150)->change();
+            // 修改字段长度
+            $table->string('city_name', 30)->change();
         });
     }
 
