@@ -18,7 +18,11 @@ class HomeController extends Controller
 //            ->row(Dashboard::title())
             ->row(function (Row $row) {
 
-                $row->column(12, function (Column $column) {
+                $row->column(4, function (Column $column) {
+                   $column->append($this->dailyStatistics());
+                });
+
+                $row->column(8, function (Column $column) {
                     $column->append(Dashboard::environment());
                 });
 
@@ -31,4 +35,19 @@ class HomeController extends Controller
                 });*/
             });
     }
+
+    /**
+     * 每日信息统计
+     */
+    protected function dailyStatistics()
+    {
+        $envs = [
+            ['name' => 'PHP version',       'value' => 'PHP/'.PHP_VERSION],
+
+        ];
+
+        return view('admin::dashboard.environment', compact('envs'));
+    }
+
+
 }
