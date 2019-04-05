@@ -45,7 +45,7 @@ class HomeController extends Controller
     {
         $today = today()->format('Y-m-d');
         $infos = [
-            ['name' => '今日访问 IP 总数', 'value' => Redis::sCard('user_id:' . $today)],
+            ['name' => '今日访问 IP 总数', 'value' => Redis::sCard('user_ip:' . $today)],
             ['name' => '今日访问 URL 总数', 'value' => BrowseLog::whereDate('created_at', $today)->count()],
             [
                 'name' => '今日访问最多 URL',
