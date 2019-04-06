@@ -47,6 +47,10 @@ class HomeController extends Controller
         $redis = Redis::connection('cache');
         $infos = [
             ['name' => '今日访问 IP 总数', 'value' => $redis->sCard('user_ip:' . $today)],
+            [
+                'name' => '今日访问最多 IP',
+                'value' => $this->getIpCount($today),
+            ],
             ['name' => '今日访问 URL 总数', 'value' => BrowseLog::whereDate('created_at', $today)->count()],
             [
                 'name' => '今日访问最多 URL',
@@ -75,7 +79,27 @@ class HomeController extends Controller
             return '';
         }
 
-        return $count->request_url.' ('.$count->count.')';
+        return $count->request_url . ' (' . $count->count . ')';
+    }
+
+    /**
+     * 获取今天访问最多 IP
+     * @param $date
+     * @return string
+     */
+    protected function getIpCount($date)
+    {
+        $count = BrowseLog::selectRaw('count(id) as count, ip_addr')
+            ->whereDate('created_at', $date)
+            ->groupBy('ip_addr')
+            ->orderBy('count', 'DESC')
+            ->first();
+
+        if (!$count) {
+            return '';
+        }
+
+        return $count->ip_addr . ' - ' . get_city_by_ip(false, '未知', $count->ip_addr) . '(' . $count->count . ')';
     }
 
 
