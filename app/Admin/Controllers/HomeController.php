@@ -89,9 +89,9 @@ class HomeController extends Controller
      */
     protected function getIpCount($date)
     {
-        $count = BrowseLog::selectRaw('count(id) as count, ip_addr')
+        $count = BrowseLog::selectRaw('count(id) as count, ip_addr, city_name')
             ->whereDate('created_at', $date)
-            ->groupBy('ip_addr')
+            ->groupBy('ip_addr', 'city_name')
             ->orderBy('count', 'DESC')
             ->first();
 
@@ -99,7 +99,7 @@ class HomeController extends Controller
             return '';
         }
 
-        return $count->ip_addr . ' - ' . get_city_by_ip(false, '未知', $count->ip_addr) . '(' . $count->count . ')';
+        return $count->ip_addr . ' - ' . $count->city_name . '(' . $count->count . ')';
     }
 
 
