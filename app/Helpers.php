@@ -416,9 +416,10 @@ if (!function_exists('get_city_by_ip')) {
      * @param string $default
      * @return string
      */
-    function get_city_by_ip(bool $isPinyin = false, string $default = '北京')
+    function get_city_by_ip(bool $isPinyin = false, string $default = '北京', string $ip = '')
     {
-        $arr = Ip::find(Request::getClientIp());
+        $ip_addr = $ip ?: Request::getClientIp();
+        $arr = Ip::find($ip_addr);
         $city = !empty($arr[2]) ? $arr[2] : $default;
 
         if ($isPinyin) {
